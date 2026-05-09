@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Gallery - Khyati Developers LLP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+
+        <div class="logo-section">
+            <img src="images/logo.png" alt="Logo">
+            <h1>Khyati Developers LLP</h1>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+
+    </nav>
+
+    <section class="gallery-page">
+        <h2>Our Project Gallery</h2>
+    
+        <div class="gallery-container">
+    
+            <img src="images/project1.png" alt="">
+            <img src="images/project2.jpeg" alt="">
+            <img src="images/project3.jpeg" alt="">
+            <img src="images/project4.jpeg" alt="">
+            <img src="images/project5.jpeg" alt="">
+            <img src="images/project6.jpeg" alt="">
+            <img src="images/project7.jpeg" alt="">
+            <img src="images/project8.jpeg" alt="">
+            
+    
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+   
+    <script>
+
+        const images = document.querySelectorAll(".gallery-container img");
+        
+        let currentImage = -1;
+        
+        // Click any image
+        images.forEach((img, index) => {
+        
+            img.addEventListener("click", () => {
+        
+                currentImage = index;
+        
+                updateGallery();
+        
+            });
+        
+        });
+        
+        // Keyboard controls
+        document.addEventListener("keydown", function(e) {
+        
+            if (currentImage === -1) return;
+        
+            // Right Arrow
+            if (e.key === "ArrowRight") {
+        
+                currentImage++;
+        
+                if (currentImage >= images.length) {
+                    currentImage = 0;
+                }
+        
+                updateGallery();
+            }
+        
+            // Left Arrow
+            if (e.key === "ArrowLeft") {
+        
+                currentImage--;
+        
+                if (currentImage < 0) {
+                    currentImage = images.length - 1;
+                }
+        
+                updateGallery();
+            }
+        
+        });
+        
+        // Highlight selected image
+        function updateGallery() {
+        
+            images.forEach(img => {
+        
+                img.style.opacity = "0.5";
+                img.style.transform = "scale(1)";
+                img.style.transition = "0.3s";
+        
+            });
+        
+            images[currentImage].style.opacity = "1";
+            images[currentImage].style.transform = "scale(1.05)";
+        }
+        
+        </script>
+
+<div id="fullscreen-view" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+justify-content:center;
+align-items:center;
+z-index:9999;
+">
+
+<span id="close-btn" style="
+    position:absolute;
+    top:20px;
+    right:35px;
+    font-size:45px;
+    color:white;
+    cursor:pointer;
+">
+    &times;
+</span>
+
+<img id="fullscreen-img" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+">
+
+</div>
+
+<script>
+
+    const galleryImages = document.querySelectorAll(".gallery-container img");
+    
+    const fullscreenView = document.getElementById("fullscreen-view");
+    
+    const fullscreenImg = document.getElementById("fullscreen-img");
+    
+    const closeBtn = document.getElementById("close-btn");
+    
+    let currentIndex = 0;
+    
+    // Open fullscreen on click
+    galleryImages.forEach((img, index) => {
+    
+        img.addEventListener("click", () => {
+    
+            currentIndex = index;
+    
+            fullscreenView.style.display = "flex";
+    
+            fullscreenImg.src = galleryImages[currentIndex].src;
+    
+        });
+    
+    });
+    
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+    
+        if(fullscreenView.style.display === "flex") {
+    
+            // Right Arrow
+            if(e.key === "ArrowRight") {
+    
+                currentIndex++;
+    
+                if(currentIndex >= galleryImages.length) {
+                    currentIndex = 0;
+                }
+    
+                fullscreenImg.src = galleryImages[currentIndex].src;
+            }
+    
+            // Left Arrow
+            if(e.key === "ArrowLeft") {
+    
+                currentIndex--;
+    
+                if(currentIndex < 0) {
+                    currentIndex = galleryImages.length - 1;
+                }
+    
+                fullscreenImg.src = galleryImages[currentIndex].src;
+            }
+    
+            // ESC to close
+            if(e.key === "Escape") {
+    
+                fullscreenView.style.display = "none";
+            }
+        }
+    
+    });
+    
+    // Close button
+    closeBtn.addEventListener("click", () => {
+    
+        fullscreenView.style.display = "none";
+    
+    });
+    
+    // Close when clicking outside image
+    fullscreenView.addEventListener("click", (e) => {
+    
+        if(e.target === fullscreenView) {
+    
+            fullscreenView.style.display = "none";
+        }
+    
+    });
+    
+    </script>
+
+
+</body>
+</html>
