@@ -90,7 +90,41 @@
         </div>
 
     </section>
+<!-- PROJECT IMAGE SLIDER -->
 
+<section class="project-slider-section">
+
+    <h2>3D Project Preview</h2>
+
+    <div class="slider">
+
+        <div class="slides fade">
+            <img src="images/SHREYA NAGAR_07.jpg.jpeg" alt="Project View 2">
+        </div>
+
+        <div class="slides fade">
+            <img src="images/SHREYA NAGAR_CUT_01.jpg.jpeg" alt="Floor Plan">
+        </div>
+
+        <div class="slides fade">
+            <img src="images/SHREYA NAGAR_06.jpg.jpeg" alt="Project View 1">
+            
+        </div>
+
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+    </div>
+
+
+    <div class="dot-container">
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+</section>
     <!-- PROJECT IMAGE SECTION -->
 
 <section class="project-image-section">
@@ -104,6 +138,52 @@
     </div>
 
 </section>
+
+<script>
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function changeSlide(n){
+        showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n){
+        showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n){
+    
+        let i;
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+    
+        if(n > slides.length){
+            slideIndex = 1;
+        }
+    
+        if(n < 1){
+            slideIndex = slides.length;
+        }
+    
+        for(i=0;i<slides.length;i++){
+            slides[i].style.display="none";
+        }
+    
+        for(i=0;i<dots.length;i++){
+            dots[i].className = dots[i].className.replace(" active","");
+        }
+    
+        slides[slideIndex-1].style.display="block";
+        dots[slideIndex-1].className += " active";
+    }
+    
+    setInterval(function(){
+        slideIndex++;
+        showSlides(slideIndex);
+    },4000);
+    
+    </script>
 
 </body>
 </html>
