@@ -122,11 +122,20 @@ button{
     background-size: cover;
 
     width: 100%;
-    min-height: auto;
+    min-height: 150vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 70vh;
+    }
 }
 .company-section{
     display:flex;
