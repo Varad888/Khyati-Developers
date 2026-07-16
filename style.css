@@ -2301,3 +2301,53 @@ video{
 }
 
 }
+
+
+/* ===========================
+   RESPONSIVE HERO
+=========================== */
+
+@media (max-width: 992px){
+
+    .hero{
+        min-height:75vh;
+        background-position:center;
+    }
+
+    .overlay{
+        width:90%;
+        padding:30px;
+    }
+
+    .overlay h2{
+        font-size:40px;
+    }
+
+    .overlay h1{
+        font-size:26px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .hero{
+        min-height:65vh;
+        background-position:center;
+        background-size:cover;
+    }
+
+    .overlay{
+        width:95%;
+        padding:20px;
+    }
+
+    .overlay h2{
+        font-size:28px;
+    }
+
+    .overlay h1{
+        font-size:18px;
+    }
+
+}
