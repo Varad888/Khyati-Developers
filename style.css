@@ -115,7 +115,20 @@ button{
     cursor:pointer;
 }
 
+.hero {
+    width: 100%;
+    min-height: 100vh;
 
+    background: url("images/bg.png") no-repeat center center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
 
 .company-section{
     display:flex;
