@@ -44,76 +44,7 @@ nav a{
     height:50px;
     object-fit:cover;
 }
-/* Hero */
-.hero{
-    position:relative;
 
-    height:70vh;
-    overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:linear-gradient(
-    -45deg,
-    #c7e7ff,
-    #b8ddff,
-    #d6efff,
-    #c4e4ff
-);
-
-    background-size:400% 400%;
-
-    animation:bgAnimation 1s ease infinite;
-
-    @keyframes bgAnimation{
-
-        0%{
-            background-position:0% 50%;
-        }
-    
-        50%{
-            background-position:100% 50%;
-        }
-    
-        100%{
-            background-position:0% 50%;
-        }
-    
-    }
-}
-.overlay{
-    background:rgba(121, 27, 57, 0.853);
-
-    padding:40px;
-    border-radius:10px;
-
-    text-align:center;
-    color:white;
-}
-
-.overlay h2{
-    font-size:50px;
-    margin-bottom:15px;
-}
-
-.overlay p{
-    font-size:20px;
-    margin-bottom:20px;
-}
-
-button{
-    padding:12px 25px;
-
-    border:none;
-    background:orange;
-
-    color:white;
-    font-size:16px;
-
-    cursor:pointer;
-}
 
 .hero {
     background-image: url("images/bg.png");
@@ -129,14 +60,6 @@ button{
     align-items: center;
 }
 
-@media (max-width: 768px) {
-    .hero {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 70vh;
-    }
-}
 .company-section{
     display:flex;
 
